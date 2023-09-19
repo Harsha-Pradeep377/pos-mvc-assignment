@@ -4,6 +4,8 @@
  */
 package pos.mvc.assignment;
 
+import pos.mvc.assignment.view.CustomerView;
+
 /**
  *
  * @author Harsha
@@ -14,7 +16,7 @@ public class PosMvcAssignment {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        System.out.println("Hello World");
+        new CustomerView().setVisible(true);
     }
     
 }
