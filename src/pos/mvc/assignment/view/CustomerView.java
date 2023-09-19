@@ -6,9 +6,11 @@ package pos.mvc.assignment.view;
 
 import java.awt.JobAttributes;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 import pos.mvc.assignment.controller.CustomerController;
 import pos.mvc.assignment.model.CustomerModel;
 
@@ -26,6 +28,7 @@ public class CustomerView extends javax.swing.JFrame {
     public CustomerView() {
         customerController = new CustomerController();
         initComponents();
+        loadAllCustomers();
     }
 
     /**
@@ -345,10 +348,47 @@ public class CustomerView extends javax.swing.JFrame {
         try {
             String resp = customerController.saveCustomer(customer);
             JOptionPane.showMessageDialog(this, resp);
+            clear();
+            loadAllCustomers();
         } catch (SQLException ex) {
             Logger.getLogger(CustomerView.class.getName()).log(Level.SEVERE, null, ex);
             JOptionPane.showMessageDialog(this, ex.getMessage());
         }
     
+    }
+    private void clear(){
+        custidText.setText("");
+        custtitleText.setText("");
+        custnameText.setText("");
+        custdobText.setText("");
+        custsalaryText.setText("");
+        custaddressText.setText("");
+        custcityText.setText("");
+        custprovinceText.setText("");
+        custzipText.setText("");
+    }
+    private void loadAllCustomers(){
+        try {
+            String [] columns = {"Id", "Name", "Adress", "Salary", "Postal Code"};
+            DefaultTableModel dtm = new DefaultTableModel(columns, 0){
+                @Override
+                public boolean isCellEditable(int row, int column) {
+                    return false;
+                }
+                
+            };
+            customerTable.setModel(dtm);
+            ArrayList<CustomerModel> customers = customerController.getAllCustomer();
+            
+            for(CustomerModel customer: customers){
+                Object [] rawData = {customer.getCustid(), customer.getTitle() + " " + customer.getName(), customer.getAddress() + " " + customer.getCity(), customer.getSalary(), customer.getZipcode() };
+                
+                dtm.addRow(rawData);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(CustomerView.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(this, ex.getMessage());
+        }
+        
     }
 }
