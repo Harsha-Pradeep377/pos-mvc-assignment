@@ -302,7 +302,7 @@ public class CustomerView extends javax.swing.JFrame {
     }//GEN-LAST:event_updateButtonActionPerformed
 
     private void deleteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteButtonActionPerformed
-        
+        deleteCustomer();
 
     }//GEN-LAST:event_deleteButtonActionPerformed
 
@@ -419,6 +419,19 @@ public class CustomerView extends javax.swing.JFrame {
         try {
             CustomerModel customer = new CustomerModel(custidText.getText(), custtitleText.getText(), custnameText.getText(), custdobText.getText(), Double.parseDouble(custsalaryText.getText()), custaddressText.getText(), custcityText.getText(), custprovinceText.getText(), custzipText.getText());
             String resp = customerController.updateCustomer(customer);
+            JOptionPane.showMessageDialog(this, resp);
+            clear();
+            loadAllCustomers();
+        } catch (SQLException ex) {
+            Logger.getLogger(CustomerView.class.getName()).log(Level.SEVERE, null, ex);
+             JOptionPane.showMessageDialog(this, ex.getMessage());
+        }
+    }
+
+    private void deleteCustomer() {
+       try {
+            String custId = custidText.getText();
+            String resp = customerController.deleteCustomer(custId);
             JOptionPane.showMessageDialog(this, resp);
             clear();
             loadAllCustomers();
