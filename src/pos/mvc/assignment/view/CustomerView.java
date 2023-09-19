@@ -4,16 +4,27 @@
  */
 package pos.mvc.assignment.view;
 
+import java.awt.JobAttributes;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+import pos.mvc.assignment.controller.CustomerController;
+import pos.mvc.assignment.model.CustomerModel;
+
 /**
  *
  * @author Harsha
  */
 public class CustomerView extends javax.swing.JFrame {
+    
+    private CustomerController customerController;
 
     /**
      * Creates new form CustomerView
      */
     public CustomerView() {
+        customerController = new CustomerController();
         initComponents();
     }
 
@@ -280,7 +291,7 @@ public class CustomerView extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void addButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addButtonActionPerformed
-       
+        saveCustomer();
     }//GEN-LAST:event_addButtonActionPerformed
 
     private void updateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateButtonActionPerformed
@@ -327,4 +338,17 @@ public class CustomerView extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JButton updateButton;
     // End of variables declaration//GEN-END:variables
+
+    private void saveCustomer() {
+        CustomerModel customer = new CustomerModel(custidText.getText(),custtitleText.getText(),custnameText.getText(),custdobText.getText(), Double.parseDouble(custsalaryText.getText()),custaddressText.getText(),custcityText.getText(),custprovinceText.getText(),custzipText.getText());
+    
+        try {
+            String resp = customerController.saveCustomer(customer);
+            JOptionPane.showMessageDialog(this, resp);
+        } catch (SQLException ex) {
+            Logger.getLogger(CustomerView.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(this, ex.getMessage());
+        }
+    
+    }
 }
