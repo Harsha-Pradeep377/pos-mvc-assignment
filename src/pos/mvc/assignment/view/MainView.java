@@ -58,6 +58,7 @@ public class MainView extends javax.swing.JFrame {
         );
 
         viewPanel.setBackground(new java.awt.Color(0, 204, 204));
+        viewPanel.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         manageCustomerButton.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
         manageCustomerButton.setText("Manage Customer");
@@ -104,7 +105,7 @@ public class MainView extends javax.swing.JFrame {
                 .addComponent(manageItemButton, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(27, 27, 27)
                 .addComponent(manageOrdersButton, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(54, Short.MAX_VALUE))
+                .addContainerGap(50, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout bodyPanelLayout = new javax.swing.GroupLayout(bodyPanel);
@@ -115,7 +116,7 @@ public class MainView extends javax.swing.JFrame {
             .addGroup(bodyPanelLayout.createSequentialGroup()
                 .addGap(187, 187, 187)
                 .addComponent(viewPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(170, Short.MAX_VALUE))
+                .addGap(23, 166, Short.MAX_VALUE))
         );
         bodyPanelLayout.setVerticalGroup(
             bodyPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

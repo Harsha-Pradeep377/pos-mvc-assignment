@@ -75,12 +75,19 @@ public class OrderView extends javax.swing.JFrame {
         itemTable = new javax.swing.JTable();
         placeorderButton = new javax.swing.JButton();
         cancelButton = new javax.swing.JButton();
+        totalButton = new javax.swing.JButton();
+        totalPriceText = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        basePanel.setBackground(new java.awt.Color(153, 204, 255));
+
+        headerPanel.setBackground(new java.awt.Color(0, 204, 153));
 
         headerlabel.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         headerlabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         headerlabel.setText("Manage Order");
+        headerlabel.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         javax.swing.GroupLayout headerPanelLayout = new javax.swing.GroupLayout(headerPanel);
         headerPanel.setLayout(headerPanelLayout);
@@ -92,6 +99,8 @@ public class OrderView extends javax.swing.JFrame {
             headerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(headerlabel, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
         );
+
+        formPanel.setBackground(new java.awt.Color(153, 204, 255));
 
         orderidLabel.setText("Order Id");
 
@@ -205,6 +214,8 @@ public class OrderView extends javax.swing.JFrame {
                 .addContainerGap(23, Short.MAX_VALUE))
         );
 
+        customerPanel.setBackground(new java.awt.Color(153, 204, 255));
+
         itemTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -234,13 +245,27 @@ public class OrderView extends javax.swing.JFrame {
             }
         });
 
+        totalButton.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        totalButton.setText("Total Price");
+        totalButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                totalButtonActionPerformed(evt);
+            }
+        });
+
+        totalPriceText.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+
         javax.swing.GroupLayout customerPanelLayout = new javax.swing.GroupLayout(customerPanel);
         customerPanel.setLayout(customerPanelLayout);
         customerPanelLayout.setHorizontalGroup(
             customerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 683, Short.MAX_VALUE)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, customerPanelLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(24, 24, 24)
+                .addComponent(totalButton)
+                .addGap(18, 18, 18)
+                .addComponent(totalPriceText, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(placeorderButton, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(48, 48, 48)
                 .addComponent(cancelButton)
@@ -253,8 +278,10 @@ public class OrderView extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(customerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(placeorderButton)
-                    .addComponent(cancelButton))
-                .addGap(0, 8, Short.MAX_VALUE))
+                    .addComponent(cancelButton)
+                    .addComponent(totalButton)
+                    .addComponent(totalPriceText))
+                .addGap(8, 8, 8))
         );
 
         javax.swing.GroupLayout basePanelLayout = new javax.swing.GroupLayout(basePanel);
@@ -313,6 +340,10 @@ public class OrderView extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_cancelButtonActionPerformed
 
+    private void totalButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_totalButtonActionPerformed
+        totalPrice();
+    }//GEN-LAST:event_totalButtonActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton additemButton;
     private javax.swing.JPanel basePanel;
@@ -339,6 +370,8 @@ public class OrderView extends javax.swing.JFrame {
     private javax.swing.JTextField qtyText;
     private javax.swing.JButton searchcustomerButton;
     private javax.swing.JButton searchitemButton1;
+    private javax.swing.JButton totalButton;
+    private javax.swing.JTextField totalPriceText;
     // End of variables declaration//GEN-END:variables
 
     private void searchCustomer() {
@@ -415,6 +448,25 @@ public class OrderView extends javax.swing.JFrame {
         orderidText.setText("");
         customerText.setText("");
         custdataLabel.setText("");
+        totalPriceText.setText("");
+    }
+
+    private void totalPrice() {
+        Double total=0.0;
+        for (OrderDetailModel od : orderDetailModels) {
+            try {
+                String itemCode = od.getItemCode();
+                ItemModel itemModel = itemController.searchItem(itemCode);
+                if(itemModel != null){
+                 total = total + ( (itemModel.getUnitPrice() * od.getQty())*((100-od.getDiscount())/100));
+                 totalPriceText.setText(Double.toString(total));
+                }else{
+                 JOptionPane.showMessageDialog(this, "Item Not Found ");
+                }
+            } catch (SQLException ex) {
+                Logger.getLogger(OrderView.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
     }
 
     

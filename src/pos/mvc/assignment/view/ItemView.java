@@ -63,20 +63,27 @@ public class ItemView extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        basePanel.setBackground(new java.awt.Color(153, 204, 255));
+
+        headerPanel.setBackground(new java.awt.Color(0, 204, 153));
+
         headerlabel.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         headerlabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         headerlabel.setText("Manage Item");
+        headerlabel.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         javax.swing.GroupLayout headerPanelLayout = new javax.swing.GroupLayout(headerPanel);
         headerPanel.setLayout(headerPanelLayout);
         headerPanelLayout.setHorizontalGroup(
             headerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(headerlabel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 600, Short.MAX_VALUE)
+            .addComponent(headerlabel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 837, Short.MAX_VALUE)
         );
         headerPanelLayout.setVerticalGroup(
             headerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(headerlabel, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
         );
+
+        formPanel.setBackground(new java.awt.Color(153, 204, 255));
 
         itemcodeLabel.setText("Item Code");
 
@@ -174,7 +181,7 @@ public class ItemView extends javax.swing.JFrame {
                 .addGroup(formPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(qohLabel)
                     .addComponent(qohText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 67, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 76, Short.MAX_VALUE)
                 .addGroup(formPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(addButton)
                     .addComponent(updateButton)
@@ -182,6 +189,8 @@ public class ItemView extends javax.swing.JFrame {
                     .addComponent(cancelButton))
                 .addGap(17, 17, 17))
         );
+
+        customerPanel.setBackground(new java.awt.Color(153, 204, 255));
 
         itemTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {

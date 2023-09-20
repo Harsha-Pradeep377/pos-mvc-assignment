@@ -72,9 +72,14 @@ public class CustomerView extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        basePanel.setBackground(new java.awt.Color(153, 204, 255));
+
+        headerPanel.setBackground(new java.awt.Color(0, 204, 153));
+
         headerlabel.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         headerlabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         headerlabel.setText("Manage Customer");
+        headerlabel.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         javax.swing.GroupLayout headerPanelLayout = new javax.swing.GroupLayout(headerPanel);
         headerPanel.setLayout(headerPanelLayout);
@@ -86,6 +91,8 @@ public class CustomerView extends javax.swing.JFrame {
             headerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(headerlabel, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
         );
+
+        formPanel.setBackground(new java.awt.Color(153, 204, 255));
 
         custidLabel.setText("Customer Id");
 
@@ -234,6 +241,8 @@ public class CustomerView extends javax.swing.JFrame {
                     .addComponent(cancelButton))
                 .addGap(17, 17, 17))
         );
+
+        customerPanel.setBackground(new java.awt.Color(153, 204, 255));
 
         customerTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
