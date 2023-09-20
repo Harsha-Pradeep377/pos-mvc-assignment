@@ -6,6 +6,7 @@ package pos.mvc.assignment;
 
 import pos.mvc.assignment.view.CustomerView;
 import pos.mvc.assignment.view.ItemView;
+import pos.mvc.assignment.view.MainView;
 import pos.mvc.assignment.view.OrderView;
 
 /**
@@ -20,7 +21,8 @@ public class PosMvcAssignment {
     public static void main(String[] args) {
         //new CustomerView().setVisible(true);
         //new ItemView().setVisible(true);
-         new OrderView().setVisible(true);
+        // new OrderView().setVisible(true);
+        new MainView().setVisible(true);
     }
     
 }
