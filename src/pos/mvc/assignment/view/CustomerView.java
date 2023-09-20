@@ -65,6 +65,7 @@ public class CustomerView extends javax.swing.JFrame {
         deleteButton = new javax.swing.JButton();
         custsalaryLabel = new javax.swing.JLabel();
         custdobText = new javax.swing.JTextField();
+        cancelButton = new javax.swing.JButton();
         customerPanel = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         customerTable = new javax.swing.JTable();
@@ -128,6 +129,14 @@ public class CustomerView extends javax.swing.JFrame {
 
         custsalaryLabel.setText("Salary");
 
+        cancelButton.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        cancelButton.setText("Cancel");
+        cancelButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cancelButtonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout formPanelLayout = new javax.swing.GroupLayout(formPanel);
         formPanel.setLayout(formPanelLayout);
         formPanelLayout.setHorizontalGroup(
@@ -150,20 +159,8 @@ public class CustomerView extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(custprovinceText, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(414, 414, 414))
-                    .addGroup(formPanelLayout.createSequentialGroup()
-                        .addGroup(formPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(custidText, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(custzipText, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, formPanelLayout.createSequentialGroup()
                         .addGroup(formPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(formPanelLayout.createSequentialGroup()
-                                .addGap(0, 0, Short.MAX_VALUE)
-                                .addComponent(deleteButton)
-                                .addGap(58, 58, 58)
-                                .addComponent(updateButton)
-                                .addGap(51, 51, 51)
-                                .addComponent(addButton))
                             .addComponent(custaddressText)
                             .addGroup(formPanelLayout.createSequentialGroup()
                                 .addGroup(formPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -176,8 +173,23 @@ public class CustomerView extends javax.swing.JFrame {
                                 .addGap(9, 9, 9)
                                 .addGroup(formPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(custnameText, javax.swing.GroupLayout.PREFERRED_SIZE, 489, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(custsalaryText, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addGap(33, 33, 33))))
+                                    .addComponent(custsalaryText, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(formPanelLayout.createSequentialGroup()
+                                .addGap(112, 112, 112)
+                                .addComponent(deleteButton)
+                                .addGap(18, 18, 18)
+                                .addComponent(updateButton)
+                                .addGap(18, 18, 18)
+                                .addComponent(addButton)
+                                .addGap(18, 18, 18)
+                                .addComponent(cancelButton)
+                                .addGap(0, 0, Short.MAX_VALUE)))
+                        .addGap(33, 33, 33))
+                    .addGroup(formPanelLayout.createSequentialGroup()
+                        .addGroup(formPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(custidText, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(custzipText, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         formPanelLayout.setVerticalGroup(
             formPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -218,7 +230,8 @@ public class CustomerView extends javax.swing.JFrame {
                 .addGroup(formPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(addButton)
                     .addComponent(updateButton)
-                    .addComponent(deleteButton))
+                    .addComponent(deleteButton)
+                    .addComponent(cancelButton))
                 .addGap(17, 17, 17))
         );
 
@@ -310,10 +323,16 @@ public class CustomerView extends javax.swing.JFrame {
         searchCustomer();
     }//GEN-LAST:event_customerTableMouseClicked
 
+    private void cancelButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelButtonActionPerformed
+        new MainView().setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_cancelButtonActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton addButton;
     private javax.swing.JPanel basePanel;
+    private javax.swing.JButton cancelButton;
     private javax.swing.JLabel custaddressLabel;
     private javax.swing.JTextField custaddressText;
     private javax.swing.JLabel custcityLabel;

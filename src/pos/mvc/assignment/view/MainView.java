@@ -142,14 +142,17 @@ public class MainView extends javax.swing.JFrame {
 
     private void manageCustomerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_manageCustomerButtonActionPerformed
         new CustomerView().setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_manageCustomerButtonActionPerformed
 
     private void manageItemButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_manageItemButtonActionPerformed
         new ItemView().setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_manageItemButtonActionPerformed
 
     private void manageOrdersButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_manageOrdersButtonActionPerformed
         new OrderView().setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_manageOrdersButtonActionPerformed
 
     /**
