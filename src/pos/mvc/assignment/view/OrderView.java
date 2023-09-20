@@ -5,13 +5,16 @@
 package pos.mvc.assignment.view;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 import pos.mvc.assignment.controller.CustomerController;
 import pos.mvc.assignment.controller.ItemController;
 import pos.mvc.assignment.model.CustomerModel;
 import pos.mvc.assignment.model.ItemModel;
+import pos.mvc.assignment.model.OrderDetailModel;
 
 /**
  *
@@ -20,6 +23,7 @@ import pos.mvc.assignment.model.ItemModel;
 public class OrderView extends javax.swing.JFrame {
     private CustomerController customerController;
     private ItemController itemController;
+    ArrayList<OrderDetailModel> orderDetailModels = new ArrayList<>();
 
     /**
      * Creates new form OrderView
@@ -28,6 +32,7 @@ public class OrderView extends javax.swing.JFrame {
         customerController = new CustomerController();
         itemController = new ItemController();
         initComponents();
+        loadTable();
     }
 
     /**
@@ -272,7 +277,7 @@ public class OrderView extends javax.swing.JFrame {
     }//GEN-LAST:event_searchcustomerButtonActionPerformed
 
     private void additemButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_additemButtonActionPerformed
-        
+        addToTable();
     }//GEN-LAST:event_additemButtonActionPerformed
 
     private void searchitemButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchitemButton1ActionPerformed
@@ -339,7 +344,31 @@ public class OrderView extends javax.swing.JFrame {
              JOptionPane.showMessageDialog(this, ex.getMessage());
          }
     }
+    private void loadTable(){
+        String [] columns = {"ItemCode", "Qty", "Discount"};
+        DefaultTableModel dtm = new DefaultTableModel(columns, 0){
+            @Override
+            public boolean isCellEditable(int row, int column) {
+                return false;
+            }
+        };
+        itemTable.setModel(dtm);
+    } 
+    private void addToTable() {
+        OrderDetailModel od = new OrderDetailModel("", itemidText.getText(), Integer.parseInt(qtyText.getText()), Double.parseDouble(discountText.getText()));
+        orderDetailModels.add(od);
+    
+        Object [] rowData ={od.getItemCode(), od.getQty(), od.getDiscount()};
+        DefaultTableModel dtm = (DefaultTableModel) itemTable.getModel();
+        dtm.addRow(rowData);
+        cleanItemData();
+    }
+    
+    private void cleanItemData() {
+        itemidText.setText("");
+        discountText.setText("");
+        qtyText.setText("");
+    }
 
     
-
 }
