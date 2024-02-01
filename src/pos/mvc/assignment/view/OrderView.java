@@ -80,11 +80,12 @@ public class OrderView extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        basePanel.setBackground(new java.awt.Color(153, 204, 255));
+        basePanel.setBackground(new java.awt.Color(51, 51, 51));
 
-        headerPanel.setBackground(new java.awt.Color(0, 204, 153));
+        headerPanel.setBackground(new java.awt.Color(255, 51, 0));
 
-        headerlabel.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        headerlabel.setFont(new java.awt.Font("Harrington", 1, 36)); // NOI18N
+        headerlabel.setForeground(new java.awt.Color(255, 255, 255));
         headerlabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         headerlabel.setText("Manage Order");
         headerlabel.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -100,36 +101,76 @@ public class OrderView extends javax.swing.JFrame {
             .addComponent(headerlabel, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
         );
 
-        formPanel.setBackground(new java.awt.Color(153, 204, 255));
+        formPanel.setBackground(new java.awt.Color(51, 51, 51));
 
+        orderidLabel.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        orderidLabel.setForeground(new java.awt.Color(255, 255, 255));
         orderidLabel.setText("Order Id");
 
+        orderidText.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        orderidText.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 51, 0), 2));
+
+        customerLabel.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        customerLabel.setForeground(new java.awt.Color(255, 255, 255));
         customerLabel.setText("Customer");
 
-        searchcustomerButton.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        customerText.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        customerText.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 51, 0), 2));
+
+        custdataLabel.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        custdataLabel.setForeground(new java.awt.Color(255, 255, 255));
+
+        searchcustomerButton.setBackground(new java.awt.Color(255, 102, 0));
+        searchcustomerButton.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        searchcustomerButton.setForeground(new java.awt.Color(255, 255, 255));
         searchcustomerButton.setText("Search");
+        searchcustomerButton.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         searchcustomerButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 searchcustomerButtonActionPerformed(evt);
             }
         });
 
+        itemidLabel.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        itemidLabel.setForeground(new java.awt.Color(255, 255, 255));
         itemidLabel.setText("Item Id");
 
+        itemidText.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        itemidText.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 51, 0), 2));
+
+        qtyLabel.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        qtyLabel.setForeground(new java.awt.Color(255, 255, 255));
         qtyLabel.setText("Qty");
 
-        additemButton.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        qtyText.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        qtyText.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 51, 0), 2));
+
+        additemButton.setBackground(new java.awt.Color(255, 102, 0));
+        additemButton.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        additemButton.setForeground(new java.awt.Color(255, 255, 255));
         additemButton.setText("Add Item");
+        additemButton.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         additemButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 additemButtonActionPerformed(evt);
             }
         });
 
+        itemdataLabel.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        itemdataLabel.setForeground(new java.awt.Color(255, 255, 255));
+
+        discountLabel.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        discountLabel.setForeground(new java.awt.Color(255, 255, 255));
         discountLabel.setText("Discount");
 
-        searchitemButton1.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        discountText.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
+        discountText.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 51, 0), 2));
+
+        searchitemButton1.setBackground(new java.awt.Color(255, 102, 0));
+        searchitemButton1.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        searchitemButton1.setForeground(new java.awt.Color(255, 255, 255));
         searchitemButton1.setText("Search");
+        searchitemButton1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         searchitemButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 searchitemButton1ActionPerformed(evt);
@@ -154,8 +195,8 @@ public class OrderView extends javax.swing.JFrame {
                             .addComponent(orderidText, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(searchcustomerButton, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(custdataLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 384, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(custdataLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 372, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(formPanelLayout.createSequentialGroup()
                         .addGroup(formPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
@@ -165,19 +206,17 @@ public class OrderView extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addGroup(formPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(formPanelLayout.createSequentialGroup()
-                                .addGroup(formPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addGroup(formPanelLayout.createSequentialGroup()
-                                        .addComponent(discountText, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(additemButton))
-                                    .addGroup(formPanelLayout.createSequentialGroup()
-                                        .addComponent(itemidText, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(searchitemButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                                .addComponent(itemidText, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(itemdataLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 390, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(qtyText, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 0, Short.MAX_VALUE))))
+                                .addComponent(searchitemButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(itemdataLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 358, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(qtyText, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(formPanelLayout.createSequentialGroup()
+                                .addComponent(discountText, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(additemButton, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 19, Short.MAX_VALUE))))
         );
         formPanelLayout.setVerticalGroup(
             formPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -214,8 +253,9 @@ public class OrderView extends javax.swing.JFrame {
                 .addContainerGap(23, Short.MAX_VALUE))
         );
 
-        customerPanel.setBackground(new java.awt.Color(153, 204, 255));
+        customerPanel.setBackground(new java.awt.Color(51, 51, 51));
 
+        itemTable.setBackground(new java.awt.Color(255, 153, 51));
         itemTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -229,24 +269,33 @@ public class OrderView extends javax.swing.JFrame {
         ));
         jScrollPane2.setViewportView(itemTable);
 
-        placeorderButton.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        placeorderButton.setBackground(new java.awt.Color(255, 102, 0));
+        placeorderButton.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        placeorderButton.setForeground(new java.awt.Color(255, 255, 255));
         placeorderButton.setText("Place Order");
+        placeorderButton.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         placeorderButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 placeorderButtonActionPerformed(evt);
             }
         });
 
-        cancelButton.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        cancelButton.setBackground(new java.awt.Color(255, 102, 0));
+        cancelButton.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        cancelButton.setForeground(new java.awt.Color(255, 255, 255));
         cancelButton.setText("Cancel");
+        cancelButton.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         cancelButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cancelButtonActionPerformed(evt);
             }
         });
 
-        totalButton.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        totalButton.setBackground(new java.awt.Color(255, 102, 0));
+        totalButton.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
+        totalButton.setForeground(new java.awt.Color(255, 255, 255));
         totalButton.setText("Total Price");
+        totalButton.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         totalButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 totalButtonActionPerformed(evt);
@@ -259,29 +308,32 @@ public class OrderView extends javax.swing.JFrame {
         customerPanel.setLayout(customerPanelLayout);
         customerPanelLayout.setHorizontalGroup(
             customerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 683, Short.MAX_VALUE)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, customerPanelLayout.createSequentialGroup()
-                .addGap(24, 24, 24)
-                .addComponent(totalButton)
+                .addGap(52, 52, 52)
+                .addComponent(totalButton, javax.swing.GroupLayout.PREFERRED_SIZE, 94, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(totalPriceText, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(placeorderButton, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(48, 48, 48)
-                .addComponent(cancelButton)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 92, Short.MAX_VALUE)
+                .addComponent(placeorderButton, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(cancelButton, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(47, 47, 47))
+            .addGroup(customerPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane2)
+                .addContainerGap())
         );
         customerPanelLayout.setVerticalGroup(
             customerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(customerPanelLayout.createSequentialGroup()
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(customerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(placeorderButton)
-                    .addComponent(cancelButton)
-                    .addComponent(totalButton)
-                    .addComponent(totalPriceText))
-                .addGap(8, 8, 8))
+                    .addComponent(totalPriceText, javax.swing.GroupLayout.DEFAULT_SIZE, 29, Short.MAX_VALUE)
+                    .addComponent(totalButton, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(placeorderButton, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cancelButton, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(7, 7, 7))
         );
 
         javax.swing.GroupLayout basePanelLayout = new javax.swing.GroupLayout(basePanel);
@@ -299,8 +351,7 @@ public class OrderView extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(formPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(customerPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(13, Short.MAX_VALUE))
+                .addComponent(customerPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -311,12 +362,11 @@ public class OrderView extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(basePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(basePanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void searchcustomerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchcustomerButtonActionPerformed
@@ -468,6 +518,7 @@ public class OrderView extends javax.swing.JFrame {
             }
         }
     }
+    
 
     
 }

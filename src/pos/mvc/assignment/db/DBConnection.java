@@ -15,7 +15,7 @@ import java.util.logging.Logger;
  * @author Harsha
  */
 public class DBConnection {
-     private static DBConnection dBConnection;
+    private static DBConnection dBConnection;
     private Connection connection;
 
     private DBConnection() {
